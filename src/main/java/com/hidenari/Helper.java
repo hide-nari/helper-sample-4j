@@ -6,4 +6,13 @@ public class Helper {
         result += number % 5 == 0 ? "buzz" : "";
         return result.isBlank() ? String.valueOf(number) : result;
     }
+
+    public static String fizzBuzz(String number) {
+        return fizzBuzz(Integer.parseInt(number));
+    }
+
+    public static String fizzBuzz(double number) {
+        return fizzBuzz((int) number);
+    }
+
 }
