@@ -17,6 +17,7 @@ class HelperTest {
         assertEquals("4", helper.fizzBuzz(4));
         assertEquals("buzz", helper.fizzBuzz(5));
         assertEquals("fizzbuzz", helper.fizzBuzz(15));
+        assertEquals("fizzbuzz", helper.fizzBuzz(30));
     }
 
     @Test
@@ -28,6 +29,7 @@ class HelperTest {
         assertEquals("4", helper.fizzBuzz("4"));
         assertEquals("buzz", helper.fizzBuzz("5"));
         assertEquals("fizzbuzz", helper.fizzBuzz("15"));
+        assertEquals("fizzbuzz", helper.fizzBuzz("30"));
     }
 
     @Test
@@ -45,6 +47,8 @@ class HelperTest {
         assertEquals("buzz", helper.fizzBuzz(5.1));
         assertEquals("fizzbuzz", helper.fizzBuzz(15.0));
         assertEquals("fizzbuzz", helper.fizzBuzz(15.1));
+        assertEquals("fizzbuzz", helper.fizzBuzz(30.0));
+        assertEquals("fizzbuzz", helper.fizzBuzz(30.1));
     }
 
     @Test
