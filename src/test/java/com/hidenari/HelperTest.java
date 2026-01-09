@@ -47,4 +47,24 @@ class HelperTest {
         assertEquals("fizzbuzz", helper.fizzBuzz(15.1));
     }
 
+    @Test
+    @DisplayName("fizzBuzz function boolean true pattern")
+    public void fizzBuzzFunctionBooleanTest() {
+        IllegalArgumentException exception =
+                assertThrows(IllegalArgumentException.class, () -> {
+                    helper.fizzBuzz(true);
+                });
+        assertEquals("boolean input invalid", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("fizzBuzz function boolean false pattern")
+    public void fizzBuzzFunctionBooleanFalseTest() {
+        IllegalArgumentException exception =
+                assertThrows(IllegalArgumentException.class, () -> {
+                    helper.fizzBuzz(false);
+                });
+        assertEquals("boolean input invalid", exception.getMessage());
+    }
+
 }

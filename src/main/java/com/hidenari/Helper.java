@@ -15,4 +15,7 @@ public class Helper {
         return fizzBuzz((int) number);
     }
 
+    public String fizzBuzz(boolean number) {
+        throw new IllegalArgumentException("boolean input invalid");
+    }
 }
