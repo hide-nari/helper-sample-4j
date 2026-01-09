@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HelperTest {
-    private final Helper helper = new Helper();
+class HelperCustomTest {
+    private final HelperCustom helper = new HelperCustom();
 
     @Test
     @DisplayName("fizzBuzz function int pattern")
@@ -17,6 +17,7 @@ class HelperTest {
         assertEquals("4", helper.fizzBuzz(4));
         assertEquals("buzz", helper.fizzBuzz(5));
         assertEquals("fizzbuzz", helper.fizzBuzz(15));
+        assertEquals("FIZZBUZZ", helper.fizzBuzz(30));
     }
 
     @Test
@@ -28,6 +29,7 @@ class HelperTest {
         assertEquals("4", helper.fizzBuzz("4"));
         assertEquals("buzz", helper.fizzBuzz("5"));
         assertEquals("fizzbuzz", helper.fizzBuzz("15"));
+        assertEquals("FIZZBUZZ", helper.fizzBuzz("30"));
     }
 
     @Test
@@ -45,6 +47,9 @@ class HelperTest {
         assertEquals("buzz", helper.fizzBuzz(5.1));
         assertEquals("fizzbuzz", helper.fizzBuzz(15.0));
         assertEquals("fizzbuzz", helper.fizzBuzz(15.1));
+        assertEquals("FIZZBUZZ", helper.fizzBuzz(30.0));
+        assertEquals("FIZZBUZZ", helper.fizzBuzz(30.1));
     }
+
 
 }
