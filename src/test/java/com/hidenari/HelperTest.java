@@ -54,7 +54,7 @@ class HelperTest {
                 assertThrows(IllegalArgumentException.class, () -> {
                     helper.fizzBuzz(true);
                 });
-        assertEquals("boolean input invalid", exception.getMessage());
+        assertEquals("boolean input invalid:true", exception.getMessage());
     }
 
     @Test
@@ -64,7 +64,7 @@ class HelperTest {
                 assertThrows(IllegalArgumentException.class, () -> {
                     helper.fizzBuzz(false);
                 });
-        assertEquals("boolean input invalid", exception.getMessage());
+        assertEquals("boolean input invalid:false", exception.getMessage());
     }
 
     @Test

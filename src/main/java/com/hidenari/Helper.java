@@ -16,6 +16,6 @@ public class Helper {
     }
 
     public void fizzBuzz(boolean number) {
-        throw new IllegalArgumentException("boolean input invalid");
+        throw new IllegalArgumentException("boolean input invalid:" + number);
     }
 }
