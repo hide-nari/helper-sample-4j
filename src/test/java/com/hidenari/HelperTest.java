@@ -67,4 +67,14 @@ class HelperTest {
         assertEquals("boolean input invalid", exception.getMessage());
     }
 
+    @Test
+    @DisplayName("fizzBuzz function str pattern with error")
+    public void fizzBuzzFunctionStringWithErrorTest() {
+        assertThrows(NumberFormatException.class, () -> {
+            helper.fizzBuzz("1st");
+        });
+        assertThrows(NumberFormatException.class, () -> {
+            helper.fizzBuzz("str");
+        });
+    }
 }
