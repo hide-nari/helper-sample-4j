@@ -1,6 +1,6 @@
 package com.hidenari;
 
-public interface HelperInterface {
+interface HelperInterface {
     default String fizzBuzz(int number) {
         var result = number % 3 == 0 ? "fizz" : "";
         result += number % 5 == 0 ? "buzz" : "";

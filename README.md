@@ -16,7 +16,7 @@ fizzbuzz function Sample on java version 25 or later.
 When updating, execute the following command.
 
 ```
-XXXX
+mvn test
 ```
 
 ## License
