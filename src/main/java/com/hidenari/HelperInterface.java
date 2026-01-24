@@ -3,17 +3,17 @@ package com.hidenari;
 interface HelperInterface<T> {
     default String fizzBuzz(T number) {
         return switch (number) {
-            case Integer value -> makeResultString(value, number);
-            case Double value -> makeResultString(value.intValue(), number);
+            case Integer value -> makeResultString(value);
+            case Double value -> makeResultString(value.intValue());
             case String value -> throw new IllegalArgumentException("string input invalid:" + value);
             case Boolean value -> throw new IllegalArgumentException("boolean input invalid:" + value);
             case null, default -> throw new IllegalArgumentException("input invalid null or default" + number);
         };
     }
 
-    private String makeResultString(int value, T number) {
+    private String makeResultString(int value) {
         String result = (value % 3 == 0 ? "fizz" : "") + (value % 5 == 0 ? "buzz" : "");
-        return result.isBlank() ? number.toString() : result;
+        return result.isBlank() ? String.valueOf(value) : result;
     }
 //    default String fizzBuzz(int number) {
 //        var result = number % 3 == 0 ? "fizz" : "";
