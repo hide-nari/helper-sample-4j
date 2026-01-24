@@ -1,4 +1,4 @@
 package com.hidenari;
 
-public class Helper implements HelperInterface {
+public class Helper<T> implements HelperInterface<T> {
 }
