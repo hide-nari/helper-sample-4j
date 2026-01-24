@@ -3,7 +3,8 @@ package com.hidenari;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class HelperTest {
     private final Helper helper = new Helper();
@@ -21,28 +22,16 @@ class HelperTest {
     }
 
     @Test
-    @DisplayName("fizzBuzz function string pattern")
-    public void fizzBuzzFunctionStringTest() {
-        assertEquals("1", helper.fizzBuzz("1"));
-        assertEquals("2", helper.fizzBuzz("2"));
-        assertEquals("fizz", helper.fizzBuzz("3"));
-        assertEquals("4", helper.fizzBuzz("4"));
-        assertEquals("buzz", helper.fizzBuzz("5"));
-        assertEquals("fizzbuzz", helper.fizzBuzz("15"));
-        assertEquals("fizzbuzz", helper.fizzBuzz("30"));
-    }
-
-    @Test
     @DisplayName("fizzBuzz function double pattern")
     public void fizzBuzzFunctionDouble() {
-        assertEquals("1", helper.fizzBuzz(1.0));
-        assertEquals("1", helper.fizzBuzz(1.1));
-        assertEquals("2", helper.fizzBuzz(2.0));
-        assertEquals("2", helper.fizzBuzz(2.1));
+        assertEquals("1.0", helper.fizzBuzz(1.0));
+        assertEquals("1.1", helper.fizzBuzz(1.1));
+        assertEquals("2.0", helper.fizzBuzz(2.0));
+        assertEquals("2.1", helper.fizzBuzz(2.1));
         assertEquals("fizz", helper.fizzBuzz(3.0));
         assertEquals("fizz", helper.fizzBuzz(3.1));
-        assertEquals("4", helper.fizzBuzz(4.0));
-        assertEquals("4", helper.fizzBuzz(4.1));
+        assertEquals("4.0", helper.fizzBuzz(4.0));
+        assertEquals("4.1", helper.fizzBuzz(4.1));
         assertEquals("buzz", helper.fizzBuzz(5.0));
         assertEquals("buzz", helper.fizzBuzz(5.1));
         assertEquals("fizzbuzz", helper.fizzBuzz(15.0));
@@ -51,6 +40,29 @@ class HelperTest {
         assertEquals("fizzbuzz", helper.fizzBuzz(30.1));
     }
 
+    @Test
+    @DisplayName("fizzBuzz function string error pattern")
+    public void fizzBuzzFunctionStringErrorTest() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("1");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("2");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("3");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("5");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("15");
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            helper.fizzBuzz("str");
+        });
+    }
+    
     @Test
     @DisplayName("fizzBuzz function boolean true pattern")
     public void fizzBuzzFunctionBooleanTest() {
@@ -71,13 +83,14 @@ class HelperTest {
         assertEquals("boolean input invalid:false", exception.getMessage());
     }
 
+
     @Test
     @DisplayName("fizzBuzz function str pattern with error")
     public void fizzBuzzFunctionStringWithErrorTest() {
-        assertThrows(NumberFormatException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             helper.fizzBuzz("1st");
         });
-        assertThrows(NumberFormatException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             helper.fizzBuzz("str");
         });
     }

@@ -4,7 +4,11 @@ public class HelperCustom<T> extends Helper<T> {
     @Override
     public String fizzBuzz(T number) {
         String result = super.fizzBuzz(number);
-        return Integer.parseInt(result) % 30 == 0 ? result.toUpperCase() : result;
+        if (number instanceof Double value) {
+            return value.intValue() % 30 == 0 ? result.toUpperCase() : result;
+        } else {
+            return (Integer) number % 30 == 0 ? result.toUpperCase() : result;
+        }
     }
 
 //    @Override
