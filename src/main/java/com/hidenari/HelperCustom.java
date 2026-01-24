@@ -4,13 +4,12 @@ public class HelperCustom<T> extends Helper<T> {
     @Override
     public String fizzBuzz(T number) {
         String result = super.fizzBuzz(number);
-        if (number instanceof Double value) {
-            return value.intValue() % 30 == 0 ? result.toUpperCase() : result;
-        } else {
-            return (Integer) number % 30 == 0 ? result.toUpperCase() : result;
-        }
+        return switch (number) {
+            case Integer value -> value % 30 == 0 ? result.toUpperCase() : result;
+            case Double value -> value.intValue() % 30 == 0 ? result.toUpperCase() : result;
+            default -> throw new IllegalStateException("Unexpected value: " + number);
+        };
     }
-
 //    @Override
 //    public String fizzBuzz(int number) {
 //        var result = super.fizzBuzz(number);
