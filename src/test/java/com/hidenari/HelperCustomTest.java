@@ -13,7 +13,7 @@ class HelperCustomTest {
 
     @Test
     @DisplayName("fizzBuzz function int pattern")
-    public void fizzBuzzFunctionIntTest() {
+    void fizzBuzzFunctionIntTest() {
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30));
         assertEquals("fizzbuzz", helper.fizzBuzz(-15));
         assertEquals("-14", helper.fizzBuzz(-14));
@@ -51,7 +51,7 @@ class HelperCustomTest {
 
     @Test
     @DisplayName("fizzBuzz function double pattern")
-    public void fizzBuzzFunctionDoubleTest() {
+    void fizzBuzzFunctionDoubleTest() {
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30.0));
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30.1));
         assertEquals("fizzbuzz", helper.fizzBuzz(-15.0));
@@ -86,7 +86,7 @@ class HelperCustomTest {
 
     @Test
     @DisplayName("fizzBuzz function string error pattern")
-    public void fizzBuzzFunctionStringErrorTest() {
+    void fizzBuzzFunctionStringErrorTest() {
         assertThrows(IllegalArgumentException.class,
                 () -> helperStr.fizzBuzz("1"));
         assertThrows(IllegalArgumentException.class,
@@ -105,7 +105,7 @@ class HelperCustomTest {
 
     @Test
     @DisplayName("fizzBuzz function boolean true pattern")
-    public void fizzBuzzFunctionBooleanTest() {
+    void fizzBuzzFunctionBooleanTest() {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
                         () -> helperBool.fizzBuzz(true));
@@ -114,7 +114,7 @@ class HelperCustomTest {
 
     @Test
     @DisplayName("fizzBuzz function boolean false pattern")
-    public void fizzBuzzFunctionBooleanFalseTest() {
+    void fizzBuzzFunctionBooleanFalseTest() {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
                         () -> helperBool.fizzBuzz(false));
