@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@DisplayName("fizzBuzz function")
 class HelperCustomTest {
     private final HelperCustom<? super Number> helper = new HelperCustom<>();
     private final HelperCustom<String> helperStr = new HelperCustom<>();
     private final HelperCustom<Boolean> helperBool = new HelperCustom<>();
 
     @Test
-    @DisplayName("fizzBuzz function int pattern")
+    @DisplayName("fizzBuzz() with int")
     void fizzBuzzFunctionIntTest() {
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30));
         assertEquals("fizzbuzz", helper.fizzBuzz(-15));
@@ -50,7 +51,7 @@ class HelperCustomTest {
     }
 
     @Test
-    @DisplayName("fizzBuzz function double pattern")
+    @DisplayName("fizzBuzz() with double")
     void fizzBuzzFunctionDoubleTest() {
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30.0));
         assertEquals("FIZZBUZZ", helper.fizzBuzz(-30.1));
@@ -85,7 +86,7 @@ class HelperCustomTest {
     }
 
     @Test
-    @DisplayName("fizzBuzz function string error pattern")
+    @DisplayName("fizzBuzz() with string ")
     void fizzBuzzFunctionStringErrorTest() {
         assertThrows(IllegalArgumentException.class,
                 () -> helperStr.fizzBuzz("1"));
@@ -104,7 +105,7 @@ class HelperCustomTest {
     }
 
     @Test
-    @DisplayName("fizzBuzz function boolean true pattern")
+    @DisplayName("fizzBuzz() with bool true")
     void fizzBuzzFunctionBooleanTest() {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
@@ -113,7 +114,7 @@ class HelperCustomTest {
     }
 
     @Test
-    @DisplayName("fizzBuzz function boolean false pattern")
+    @DisplayName("fizzBuzz() with bool false")
     void fizzBuzzFunctionBooleanFalseTest() {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
