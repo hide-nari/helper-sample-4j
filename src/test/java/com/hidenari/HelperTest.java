@@ -2,6 +2,8 @@ package com.hidenari;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,42 +14,50 @@ class HelperTest {
     private final Helper<String> helperStr = new Helper<>();
     private final Helper<Boolean> helperBool = new Helper<>();
 
-    @Test
+    @ParameterizedTest(name = "{index}:{arguments}")
+    @ValueSource(strings = {
+            "-30,fizzbuzz",
+            "-15,fizzbuzz",
+            "-14,-14",
+            "-13,-13",
+            "-12,fizz",
+            "-11,-11",
+            "-10,buzz",
+            "-9,fizz",
+            "-8,-8",
+            "-7,-7",
+            "-6,fizz",
+            "-5,buzz",
+            "-4,-4",
+            "-3,fizz",
+            "-2,-2",
+            "-1,-1",
+            "0,fizzbuzz",
+            "1,1",
+            "2,2",
+            "3,fizz",
+            "4,4",
+            "5,buzz",
+            "6,fizz",
+            "7,7",
+            "8,8",
+            "9,fizz",
+            "10,buzz",
+            "11,11",
+            "12,fizz",
+            "13,13",
+            "14,14",
+            "15,fizzbuzz",
+            "30,fizzbuzz",
+    }
+    )
     @DisplayName("fizzBuzz() with int")
-    void fizzBuzzFunctionIntTest() {
-        assertEquals("fizzbuzz", helper.fizzBuzz(-30));
-        assertEquals("fizzbuzz", helper.fizzBuzz(-15));
-        assertEquals("-14", helper.fizzBuzz(-14));
-        assertEquals("-13", helper.fizzBuzz(-13));
-        assertEquals("fizz", helper.fizzBuzz(-12));
-        assertEquals("-11", helper.fizzBuzz(-11));
-        assertEquals("buzz", helper.fizzBuzz(-10));
-        assertEquals("fizz", helper.fizzBuzz(-9));
-        assertEquals("-8", helper.fizzBuzz(-8));
-        assertEquals("-7", helper.fizzBuzz(-7));
-        assertEquals("fizz", helper.fizzBuzz(-6));
-        assertEquals("buzz", helper.fizzBuzz(-5));
-        assertEquals("-4", helper.fizzBuzz(-4));
-        assertEquals("fizz", helper.fizzBuzz(-3));
-        assertEquals("-2", helper.fizzBuzz(-2));
-        assertEquals("-1", helper.fizzBuzz(-1));
-        assertEquals("fizzbuzz", helper.fizzBuzz(0));
-        assertEquals("1", helper.fizzBuzz(1));
-        assertEquals("2", helper.fizzBuzz(2));
-        assertEquals("fizz", helper.fizzBuzz(3));
-        assertEquals("4", helper.fizzBuzz(4));
-        assertEquals("buzz", helper.fizzBuzz(5));
-        assertEquals("fizz", helper.fizzBuzz(6));
-        assertEquals("7", helper.fizzBuzz(7));
-        assertEquals("8", helper.fizzBuzz(8));
-        assertEquals("fizz", helper.fizzBuzz(9));
-        assertEquals("buzz", helper.fizzBuzz(10));
-        assertEquals("11", helper.fizzBuzz(11));
-        assertEquals("fizz", helper.fizzBuzz(12));
-        assertEquals("13", helper.fizzBuzz(13));
-        assertEquals("14", helper.fizzBuzz(14));
-        assertEquals("fizzbuzz", helper.fizzBuzz(15));
-        assertEquals("fizzbuzz", helper.fizzBuzz(30));
+    void fizzBuzzFunctionIntTest(String paramStr) {
+        String[] param = paramStr.split(",");
+        var args = Integer.parseInt(param[0]);
+        var expectValue = param[1];
+
+        assertEquals(expectValue, helper.fizzBuzz(args));
     }
 
     @Test
