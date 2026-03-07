@@ -52,12 +52,12 @@ class HelperTest {
     }
     )
     @DisplayName("fizzBuzz() with int")
-    void fizzBuzzFunctionIntTest(String paramStr) {
-        String[] param = paramStr.split(",");
-        var args = Integer.parseInt(param[0]);
-        var expectValue = param[1];
+    void fizzBuzzFunctionIntTest(String arguments) {
+        String[] paramArray = arguments.split(",");
+        int argsValue = Integer.parseInt(paramArray[0]);
+        var expectValue = paramArray[1];
 
-        assertEquals(expectValue, helper.fizzBuzz(args));
+        assertEquals(expectValue, helper.fizzBuzz(argsValue));
     }
 
     @Test
