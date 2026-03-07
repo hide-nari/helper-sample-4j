@@ -5,9 +5,7 @@ interface HelperInterface<T> {
         return switch (number) {
             case Integer value -> makeResultString(value);
             case Double value -> makeResultString(value.intValue());
-            case String value -> throw new IllegalArgumentException("string input invalid:" + value);
-            case Boolean value -> throw new IllegalArgumentException("boolean input invalid:" + value);
-            case null, default -> throw new IllegalArgumentException("input invalid null or default" + number);
+            default -> throw new IllegalArgumentException("Unexpected value:" + number);
         };
     }
 

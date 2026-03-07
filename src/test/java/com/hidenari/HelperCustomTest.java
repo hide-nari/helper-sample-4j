@@ -110,7 +110,7 @@ class HelperCustomTest {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
                         () -> helperBool.fizzBuzz(true));
-        assertEquals("boolean input invalid:true", exception.getMessage());
+        assertEquals("Unexpected value:true", exception.getMessage());
     }
 
     @Test
@@ -119,6 +119,6 @@ class HelperCustomTest {
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class,
                         () -> helperBool.fizzBuzz(false));
-        assertEquals("boolean input invalid:false", exception.getMessage());
+        assertEquals("Unexpected value:false", exception.getMessage());
     }
 }
