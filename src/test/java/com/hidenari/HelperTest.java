@@ -2,9 +2,9 @@ package com.hidenari;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -36,35 +36,25 @@ class HelperTest {
     @Nested
     @DisplayName("fizzBuzz() Error Group")
     class FizzBuzzErrorTest {
-        @Test
+
+        @ParameterizedTest(name = "{index}:{arguments}")
+        @ValueSource(strings = {"1", "1st", "2", "2nd", "3rd"})
         @DisplayName("fizzBuzz() with string")
-        void fizzBuzzFunctionStringErrorTest() {
-            assertThrows(IllegalArgumentException.class,
-                    () -> new Helper<String>().fizzBuzz("1"));
-            assertThrows(IllegalArgumentException.class,
-                    () -> new Helper<String>().fizzBuzz("2"));
-            assertThrows(IllegalArgumentException.class,
-                    () -> new Helper<String>().fizzBuzz("3"));
-            assertThrows(IllegalArgumentException.class,
-                    () -> new Helper<String>().fizzBuzz("1st"));
+        void fizzBuzzFunctionStringErrorTest(String argsValue) {
+            IllegalArgumentException exception =
+                    assertThrows(IllegalArgumentException.class,
+                            () -> new Helper<String>().fizzBuzz(argsValue));
+            assertEquals("Unexpected value:" + argsValue, exception.getMessage());
         }
 
-        @Test
+        @ParameterizedTest(name = "{index}:{arguments}")
+        @ValueSource(booleans = {true, false})
         @DisplayName("fizzBuzz() with bool true")
-        void fizzBuzzFunctionBooleanTest() {
+        void fizzBuzzFunctionBooleanTest(boolean argsValue) {
             IllegalArgumentException exception =
                     assertThrows(IllegalArgumentException.class,
-                            () -> new Helper<Boolean>().fizzBuzz(true));
-            assertEquals("Unexpected value:true", exception.getMessage());
-        }
-
-        @Test
-        @DisplayName("fizzBuzz() with bool false")
-        void fizzBuzzFunctionBooleanFalseTest() {
-            IllegalArgumentException exception =
-                    assertThrows(IllegalArgumentException.class,
-                            () -> new Helper<Boolean>().fizzBuzz(false));
-            assertEquals("Unexpected value:false", exception.getMessage());
+                            () -> new Helper<Boolean>().fizzBuzz(argsValue));
+            assertEquals("Unexpected value:" + argsValue, exception.getMessage());
         }
     }
 }
