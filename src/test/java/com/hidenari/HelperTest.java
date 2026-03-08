@@ -36,7 +36,7 @@ class HelperTest {
     }
 
     @Nested
-    @DisplayName("fizzBuzz() Error Group")
+    @DisplayName("fizzBuzz() error group")
     class FizzBuzzErrorTest {
 
         @ParameterizedTest(name = "{index}:{arguments}")
@@ -51,7 +51,7 @@ class HelperTest {
 
         @ParameterizedTest(name = "{index}:{arguments}")
         @ValueSource(booleans = {true, false})
-        @DisplayName("fizzBuzz() with bool true")
+        @DisplayName("fizzBuzz() with bool")
         void fizzBuzzFunctionBooleanTest(boolean argsValue) {
             IllegalArgumentException exception =
                     assertThrows(IllegalArgumentException.class,

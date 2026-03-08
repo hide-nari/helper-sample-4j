@@ -20,7 +20,7 @@ class HelperCustomTest {
         @ParameterizedTest(name = "{index}:{arguments}")
         @CsvFileSource(resources = "/fizzBuzzIntListsCommon.csv", numLinesToSkip = 1)
         @CsvFileSource(resources = "/fizzBuzzIntListsCustom.csv", numLinesToSkip = 1)
-        @DisplayName("fizzBuzz() with int")
+        @DisplayName("fizzBuzz() custom with int")
         void fizzBuzzFunctionIntTest(int argsValue, String expectValue) {
             assertEquals(expectValue, helper.fizzBuzz(argsValue));
         }
@@ -28,19 +28,19 @@ class HelperCustomTest {
         @ParameterizedTest(name = "{index}:{arguments}")
         @CsvFileSource(resources = "/fizzBuzzDoubleListsCommon.csv", numLinesToSkip = 1)
         @CsvFileSource(resources = "/fizzBuzzDoubleListsCustom.csv", numLinesToSkip = 1)
-        @DisplayName("fizzBuzz() with double")
+        @DisplayName("fizzBuzz() custom with double")
         void fizzBuzzFunctionDoubleTest(double argsValue, String expectValue) {
             assertEquals(expectValue, helper.fizzBuzz(argsValue));
         }
     }
 
     @Nested
-    @DisplayName("fizzBuzz() Custom Error Group")
+    @DisplayName("fizzBuzz() custom error group")
     class FizzBuzzErrorTest {
 
         @ParameterizedTest(name = "{index}:{arguments}")
         @ValueSource(strings = {"1", "1st", "2", "2nd", "3rd"})
-        @DisplayName("fizzBuzz() Custom with string")
+        @DisplayName("fizzBuzz() custom with string")
         void fizzBuzzFunctionStringErrorTest(String argsValue) {
             IllegalArgumentException exception =
                     assertThrows(IllegalArgumentException.class,
@@ -50,7 +50,7 @@ class HelperCustomTest {
 
         @ParameterizedTest(name = "{index}:{arguments}")
         @ValueSource(booleans = {true, false})
-        @DisplayName("fizzBuzz() Custom with bool true")
+        @DisplayName("fizzBuzz() custom with bool")
         void fizzBuzzFunctionBooleanTest(boolean argsValue) {
             IllegalArgumentException exception =
                     assertThrows(IllegalArgumentException.class,
