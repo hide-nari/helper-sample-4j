@@ -18,14 +18,16 @@ class HelperTest {
         private final Helper<? super Number> helper = new Helper<>();
 
         @ParameterizedTest(name = "{index}:{arguments}")
-        @CsvFileSource(resources = "/fizzBuzzIntLists.csv", numLinesToSkip = 1)
+        @CsvFileSource(resources = "/fizzBuzzIntListsCommon.csv", numLinesToSkip = 1)
+        @CsvFileSource(resources = "/fizzBuzzIntListsOrigin.csv", numLinesToSkip = 1)
         @DisplayName("fizzBuzz() with int")
         void fizzBuzzFunctionIntTest(int argsValue, String expectValue) {
             assertEquals(expectValue, helper.fizzBuzz(argsValue));
         }
 
         @ParameterizedTest(name = "{index}:{arguments}")
-        @CsvFileSource(resources = "/fizzBuzzDoubleLists.csv", numLinesToSkip = 1)
+        @CsvFileSource(resources = "/fizzBuzzDoubleListsCommon.csv", numLinesToSkip = 1)
+        @CsvFileSource(resources = "/fizzBuzzDoubleListsOrigin.csv", numLinesToSkip = 1)
         @DisplayName("fizzBuzz() with double")
         void fizzBuzzFunctionDoubleTest(double argsValue, String expectValue) {
             assertEquals(expectValue, helper.fizzBuzz(argsValue));

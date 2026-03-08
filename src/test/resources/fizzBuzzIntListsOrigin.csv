@@ -1,0 +1,6 @@
+argsValue,expectValue
+-60,fizzbuzz
+-30,fizzbuzz
+0,fizzbuzz
+30,fizzbuzz
+60,fizzbuzz
