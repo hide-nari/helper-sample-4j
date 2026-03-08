@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("fizzBuzz custom function")
+@DisplayName("fizzBuzz")
 class HelperTest {
 
     @Nested
