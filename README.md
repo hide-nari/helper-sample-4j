@@ -1,5 +1,16 @@
 fizzbuzz function Sample on java version 25 or later.
 
+# Usage
+## Build
+```
+mvn clean package
+```
+## Run
+```
+java -jar target/helper-sample-4j-1.0.0.jar 
+```
+
+
 # About this package
 ## Function fizzbuzz(number)
 
