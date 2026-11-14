@@ -1,5 +1,6 @@
 package com.hidenari;
 
+import java.lang.*;
 
 public class Main {
     static void main() {
